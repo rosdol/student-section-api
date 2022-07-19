@@ -20,13 +20,6 @@ class Section(models.Model):
         through_fields=('section', 'student'),
         # blank=True,
     )
-    def section_students(self):
-        section_students = self.students.all()
-        return section_students
-    
-
-    def get_memberships(self):
-        return Section.students.through.objects.filter(section_id=self.id)
 
     def __str__(self):
             return self.name

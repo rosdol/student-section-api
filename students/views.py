@@ -8,7 +8,7 @@ from django.db.models import Prefetch
 
 class StudentAPIList(generics.ListCreateAPIView):
     serializer_class = StudentSerialize
-    # permission_classes = (IsAuthenticatedOrReadOnly, )
+    permission_classes = (IsAuthenticatedOrReadOnly, )
     def get_queryset(self):
         queryset = Student.objects.all()
         name = self.request.query_params.get('name')
@@ -26,7 +26,7 @@ class StudentAPIUpdate(generics.RetrieveUpdateAPIView):
 class StudentAPIDestroy(generics.RetrieveDestroyAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentSerialize
-    # permission_classes = (IsAdminOrReadOnly, )
+    permission_classes = (IsAdminOrReadOnly, )
 
 
 class SectionViewSet(viewsets.ModelViewSet):
