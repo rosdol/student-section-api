@@ -15,20 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path, include
-# from students.views import StudentViewSet, SectionViewSet#SectionAPIView, SectionAPIDetailView
 from rest_framework import routers
 from students.views import *
 
 router = routers.SimpleRouter()
-router.register(r'sections', SectionViewSet)
+router.register(r'sections', SectionViewSet, basename='section')
+router.register(r'memberships', MembershipViewSet)
 
-router.register(r'members', MembershipViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/students/', StudentAPIList.as_view()),
     path('api/v1/students/<int:pk>/', StudentAPIUpdate.as_view()),
-    # path('api/v1/members/', MembershipViewSet.as_view()),
     path('api/v1/auth/', include('djoser.urls')),
     re_path(r'^auth/', include('djoser.urls.authtoken')),
     path('api/v1/', include(router.urls)),
