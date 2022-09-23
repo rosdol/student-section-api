@@ -18,7 +18,7 @@ or
 
 ## Models
 
-* `Student` - This model represents a dog in the app.
+* `Student` - 
 
 	Fields:
 
@@ -26,7 +26,7 @@ or
 	* `is_teacher`
 	* `is_student`
 
-* `Secion` -  This model represents a link between a user an a dog
+* `Secion` -  
 
 	Fields:
 
@@ -39,8 +39,6 @@ or
     * `date_joined`
 
 ## Routes
-
-The following routes are expected by the JavaScript application.
 
 * To get the next lists of students or sections
 
